@@ -110,7 +110,7 @@ var contract = web3.eth.contract(abi);
 
 var loadRepContract = function(){
 
-    contract.new({from: primaryAddress, data: code, gas: 4100000}, function(error, result){
+    contract.new({from: primaryAddress, data: code, gas: 1500000}, function(error, result){
         if (error){
             console.log(error);
         }
