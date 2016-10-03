@@ -127,7 +127,7 @@ var sendDust = function(){
     console.log("Sending Dust.");
     var total = new BigNumber(11000000 * fxp);
     var supply = new BigNumber(repContract.totalSupply.call());
-    var dust = total.minus(supply).toNumber();
+    var dust = total.minus(supply);
     console.log("Dust amount:", dust / fxp, "ether");
     repContract.setSaleDistribution(['0x0000000000000000000000000000000000000001'], [dust], {from: primaryAddress, gas: 1500000}, function (error, tx) {
         if (error) {
