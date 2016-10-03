@@ -180,7 +180,7 @@ var initializeRepBalances = function(start){
 
 var validateBalances = function(){
     for (var i = 0; i < addresses.length; ++i){
-    	if (i % 30 == 0) console.log((i / addresses.length * 30).toFixed(2) + " % complete");
+    	if (i % 100 == 0) console.log((i / addresses.length * 100).toFixed(2) + " % complete");
         var balance = repContract.balanceOf.call(addresses[i]);
         if (balances[i] * fxp != balance){
             console.log("ERROR: balance on contract for", addresses[i], "is", balance / fxp, ", expected", balances[i]);
