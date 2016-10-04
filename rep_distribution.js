@@ -110,7 +110,7 @@ var contract = web3.eth.contract(abi);
 
 var loadRepContract = function(){
 
-    contract.new({from: primaryAddress, data: code, gas: 1500000}, function(error, result){
+    contract.new({from: primaryAddress, data: code, gas: 1499999}, function(error, result){
         if (error){
             console.log(error);
         }
@@ -129,7 +129,7 @@ var sendDust = function(){
     var supply = new BigNumber(repContract.totalSupply.call());
     var dust = total.minus(supply);
     console.log("Dust amount:", dust / fxp, "ether");
-    repContract.setSaleDistribution(['0x0000000000000000000000000000000000000000'], [dust], {from: primaryAddress, gas: 1500000}, function (error, tx) {
+    repContract.setSaleDistribution(['0x0000000000000000000000000000000000000000'], [dust], {from: primaryAddress, gas: 1499999}, function (error, tx) {
         if (error) {
             console.log("error", error);
         } else {
@@ -162,7 +162,7 @@ var initializeRepBalances = function(start){
     var addrBatch = addresses.slice(start, start + batchSize);
     //convert balances to 10^18 fixed point
     var balanceBatch = balances.slice(start, start + batchSize).map( function(n) {return n * fxp});
-    repContract.setSaleDistribution(addrBatch, balanceBatch, {from: primaryAddress, gas: 1500000}, function (error, tx) {
+    repContract.setSaleDistribution(addrBatch, balanceBatch, {from: primaryAddress, gas: 1499999}, function (error, tx) {
         if (error) {
             console.log("error", error);
         } else {
